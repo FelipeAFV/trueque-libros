@@ -1,6 +1,7 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
 import { Book } from "./Book";
 import { History } from "./History";
+import { User } from "./User";
 
 @Entity({name: 'readers'})
 export class Reader {
@@ -13,5 +14,9 @@ export class Reader {
 
     @OneToMany(() => Book, book => book.reader)
     books: Book[];
+
+    @OneToOne( () => User, {cascade : true})
+    @JoinColumn({name: 'user_id'})
+    user: User;
 
 }

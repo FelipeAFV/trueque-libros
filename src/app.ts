@@ -1,6 +1,7 @@
 import express, { json, Request, Response} from "express";
 import dotenv from "dotenv";
 import path from "path";
+import {router as AuthController} from './routes/auth'
 dotenv.config();
 import cors from "cors";
 import './config/database-connection'
@@ -36,6 +37,8 @@ if (process.env.NODE_ENV == 'production') {
 } else {
 
 }
+
+app.use('/log', AuthController)
 
 
 app.listen(PORT || 3000, () => {

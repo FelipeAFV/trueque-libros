@@ -15,7 +15,6 @@ export class User {
     password: string;
 
     @OneToOne( () => Reader)
-    @JoinColumn({name: 'reader_id'})
     reader: Reader;
 
 
