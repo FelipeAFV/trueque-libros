@@ -5,7 +5,7 @@ createConnection({
     username: 'root',
     password: '',
     host: 'localhost',
-    database: 'trueque_libros',
+    database: 'truequelibros',
     type: "mysql",
     port: 3306,
     synchronize: true,
