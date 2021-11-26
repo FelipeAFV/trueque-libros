@@ -1,5 +1,6 @@
 import express, { json, Request, Response} from "express";
 import cors from "cors";
+import './config/database-connection'
 const app = express();
 const PORT = process.env.PORT;
 
