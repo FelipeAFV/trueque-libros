@@ -3,8 +3,11 @@ import dotenv from "dotenv";
 import path from "path";
 import {router as AuthController} from './routes/auth'
 dotenv.config();
+import './auth/passport-config'
+import passport from 'passport';
 import cors from "cors";
 import './config/database-connection'
+import cookieParser from "cookie-parser";
 const app = express();
 const PORT = process.env.PORT;
 
@@ -21,6 +24,8 @@ app.use(cors({
     origin: 'http://localhost:5000',
     credentials: true
 }));
+app.use(passport.initialize());
+app.use(cookieParser());
 
 app.use('/test', (req: Request, res: Response) => {
     res.status(200).json({ successMessage: 'Test route response'});
@@ -40,6 +45,9 @@ if (process.env.NODE_ENV == 'production') {
 
 app.use('/log', AuthController)
 
+app.get('/protection_test', passport.authenticate('jwt',{session: false}), (req:Request,res:Response) => res.json({res: req.user}))
+
+app.get('/limpiar', (req:Request,res:Response) => res.clearCookie('auth').json({message: 'listo'}))
 
 app.listen(PORT || 3000, () => {
     console.log('App running on port', PORT || 3000);
