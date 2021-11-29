@@ -43,7 +43,7 @@ if (process.env.NODE_ENV == 'production') {
 
 }
 
-app.use('/log', AuthController)
+app.use('/auth', AuthController)
 
 app.get('/protection_test', passport.authenticate('jwt',{session: false}), (req:Request,res:Response) => res.json({res: req.user}))
 

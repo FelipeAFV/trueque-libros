@@ -14,7 +14,7 @@ export class User {
     @Column({name: 'password'})
     password: string;
 
-    @OneToOne( () => Reader)
+    @OneToOne( () => Reader )
     reader: Reader;
 
 

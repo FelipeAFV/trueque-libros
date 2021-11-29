@@ -8,6 +8,7 @@ class ReaderService extends GenericService<Reader>{
     constructor() {
         super(Reader);
     }
+
 }
 
 export default new ReaderService();

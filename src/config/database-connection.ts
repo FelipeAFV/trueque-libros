@@ -5,12 +5,12 @@ createConnection({
     username: 'root',
     password: '',
     host: 'localhost',
-    database: 'truequelibros',
+    database: 'trueque_libros',
     type: "mysql",
     port: 3306,
     synchronize: true,
     entities: [
-        "model/**/*.ts"
+        "src/model/**/*.ts"
     ],
 }).then((connection) => {
     console.log('Connection successfull');
