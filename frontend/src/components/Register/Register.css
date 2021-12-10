@@ -1,0 +1,7 @@
+.register {
+  align-items: flex-start;
+  background-color: var(--surfie-green);
+  display: flex;
+  width: 1920px;
+}
+
