@@ -2,9 +2,10 @@ import express, { json, Request, Response} from "express";
 import dotenv from "dotenv";
 import path from "path";
 import {router as AuthController} from './routes/auth'
+import bookRoutes from './routes/book-routes'
 dotenv.config();
 import './auth/passport-config'
-import passport from 'passport';
+import passport, { session } from 'passport';
 import cors from "cors";
 import './config/database-connection'
 import cookieParser from "cookie-parser";
@@ -44,6 +45,9 @@ if (process.env.NODE_ENV == 'production') {
 }
 
 app.use('/auth', AuthController)
+
+app.use('/books', passport.authenticate('jwt', {session: false}), bookRoutes );
+// app.use('/books', bookRoutes );
 
 app.get('/protection_test', passport.authenticate('jwt',{session: false}), (req:Request,res:Response) => res.json({res: req.user}))
 
