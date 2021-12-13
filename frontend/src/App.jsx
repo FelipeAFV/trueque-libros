@@ -72,11 +72,11 @@ const profileData = {
     nombreNombre: "Nombre: nombre",
 };
 
-const loginData = {
+let loginData = {
     contenedorLogo: "/img/contenedor-logo@2x.png",
     contenedorLadoDerecho: "/img/contenedor-lado-derecho@1x.png",
     usuario: "Usuario",
-    usuarioCopy: "TuUsuario",
+    usuarioCopy: "",
     usuarioCopy2: "••••••••••••",
     iniciarSesin: "Iniciar Sesión",
     nuestroDeseo: "Nuestro deseo",

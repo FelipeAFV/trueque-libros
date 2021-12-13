@@ -15,6 +15,29 @@ import {
 import "./Register.css";
 
 class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      form: {
+        name: '',
+        last_name: '',
+        email:'',
+        password:''
+      }
+    }
+  }
+
+
+  handleChange = (e) => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value
+      }
+    });
+    console.log(this.state.form)
+  }
+
   render() {
     const {
       usuario,
@@ -47,14 +70,16 @@ class Register extends React.Component {
             <RectangleCopy3></RectangleCopy3>
             <RectangleCopy></RectangleCopy>
             <Usuario>{usuario}</Usuario>
-            <UsuarioCopy>{usuarioCopy}</UsuarioCopy>
+            <UsuarioCopy type="text" name="name" placeholder="Nombre" onChange={this.handleChange}/>
             <UsuarioCopy3>{usuarioCopy3}</UsuarioCopy3>
-            <UsuarioCopy4>{usuarioCopy4}</UsuarioCopy4>
-            <ContenedorLogo src={contenedorLogo} />
+            <UsuarioCopy4 type="text" name="last_name" placeholder="Apellido" onChange={this.handleChange} />
+            <Link to="/landing-page">
+              <ContenedorLogo src={contenedorLogo} />
+            </Link>
             <UsuarioCopy5>{usuarioCopy5}</UsuarioCopy5>
             <ContenedorLadoDerecho src={contenedorLadoDerecho} />
-            <UsuarioCopy6>{usuarioCopy6}</UsuarioCopy6>
-            <UsuarioCopy2>{usuarioCopy2}</UsuarioCopy2>
+            <UsuarioCopy6 type="text" name="email" placeholder="Email" onChange={this.handleChange}/>
+            <UsuarioCopy2 type="text" name="password" placeholder="Contraseña" onChange={this.handleChange}/>
             <Regstrate>{regstrate}</Regstrate>
             <NuestroDeseo>{nuestroDeseo}</NuestroDeseo>
             <IntercambiaTuLibroPorUnoD>{intercambiaTuLibroPorUnoD}</IntercambiaTuLibroPorUnoD>
@@ -146,13 +171,15 @@ const Usuario = styled.div`
   letter-spacing: 0;
 `;
 
-const UsuarioCopy = styled.div`
+const UsuarioCopy = styled.input`
   ${RobotoLightTurquoisePearl14px}
   position: absolute;
-  width: 117px;
+  width: 150px;
   top: 443px;
   left: 509px;
   letter-spacing: 0;
+  border: none;
+  
 `;
 
 const UsuarioCopy3 = styled.div`
@@ -164,15 +191,17 @@ const UsuarioCopy3 = styled.div`
   top: 482px;
   left: 509px;
   letter-spacing: 0;
+  border: none;
 `;
 
-const UsuarioCopy4 = styled.div`
+const UsuarioCopy4 = styled.input`
   ${RobotoLightTurquoisePearl14px}
   position: absolute;
-  width: 117px;
+  width: 150px;
   top: 513px;
   left: 509px;
   letter-spacing: 0;
+  border: none;
 `;
 
 const ContenedorLogo = styled.img`
@@ -204,22 +233,24 @@ const ContenedorLadoDerecho = styled.img`
   object-fit: cover;
 `;
 
-const UsuarioCopy6 = styled.div`
+const UsuarioCopy6 = styled.input`
   ${RobotoLightTurquoisePearl14px}
   position: absolute;
-  width: 117px;
+  width: 150px;
   top: 583px;
   left: 509px;
   letter-spacing: 0;
+  border: none;
 `;
 
-const UsuarioCopy2 = styled.div`
+const UsuarioCopy2 = styled.input`
   ${RobotoLightTurquoisePearl14px}
   position: absolute;
-  width: 75px;
+  width: 150px;
   top: 647px;
   left: 509px;
   letter-spacing: 0;
+  border: none;
 `;
 
 const Regstrate = styled.div`

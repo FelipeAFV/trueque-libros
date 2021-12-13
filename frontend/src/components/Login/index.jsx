@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
@@ -12,10 +13,42 @@ import {
   RobotoLightBlack22px,
 } from "../../styledMixins";
 import "./Login.css";
+/* import { iniciarSesion } from "../auth"; */
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      form: {
+        username: '',
+        password: ''
+      }
+    }
+  }
+
+  /* login = async()=> {
+      await axios.get(baseUrl, {params: {username:this.state.username, password:this.state.password}})
+      .then(response=>{
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    }   */
+  handleChange = (e) => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value
+      }
+    });
+    console.log(this.state.form)
+  }
+
+
+
   render() {
-    const {
+    let {
       contenedorLogo,
       contenedorLadoDerecho,
       usuario,
@@ -31,6 +64,8 @@ class Login extends React.Component {
       intercambiaTuLibro,
     } = this.props;
 
+
+
     return (
       <div className="container-center-horizontal">
         <div className="login screen">
@@ -39,11 +74,14 @@ class Login extends React.Component {
             <Rectangle2 src="/img/rectangle-2-1@2x.svg" />
             <Rectangle></Rectangle>
             <RectangleCopy></RectangleCopy>
-            <ContenedorLogo src={contenedorLogo} />
+            <Link to="/landing-page">
+              <ContenedorLogo src={contenedorLogo} />
+            </Link>
+
             <ContenedorLadoDerecho src={contenedorLadoDerecho} />
-            <Usuario>{usuario}</Usuario>
-            <UsuarioCopy>{usuarioCopy}</UsuarioCopy>
-            <UsuarioCopy2>{usuarioCopy2}</UsuarioCopy2>
+            <Usuario >{usuario}</Usuario>
+            <UsuarioCopy type="text" name="username" placeholder="Usuario" onChange={this.handleChange} />
+            <UsuarioCopy2 type="password" name="password" placeholder="Contraseña" onChange={this.handleChange} />
             <IniciarSesin>{iniciarSesin}</IniciarSesin>
             <NuestroDeseo>{nuestroDeseo}</NuestroDeseo>
             <IntercambiaTuLibroPorUnoD>{intercambiaTuLibroPorUnoD}</IntercambiaTuLibroPorUnoD>
@@ -53,7 +91,7 @@ class Login extends React.Component {
               <Registrate>{registrate}</Registrate>
             </Link>
             <Link to="/home-page">
-              <Iniciar>{iniciar}</Iniciar>
+              <Iniciar />
             </Link>
             <IntercambiaTuLibro>{intercambiaTuLibro}</IntercambiaTuLibro>
           </OverlapGroup>
@@ -62,6 +100,8 @@ class Login extends React.Component {
     );
   }
 }
+
+
 
 const OverlapGroup = styled.div`
   width: 1920px;
@@ -133,22 +173,24 @@ const Usuario = styled.div`
   letter-spacing: 0;
 `;
 
-const UsuarioCopy = styled.div`
+const UsuarioCopy = styled.input`
   ${RobotoLightTurquoisePearl14px}
   position: absolute;
-  width: 75px;
+  width: 150px;
   top: 443px;
   left: 509px;
   letter-spacing: 0;
+  border: none;
 `;
 
-const UsuarioCopy2 = styled.div`
+const UsuarioCopy2 = styled.input`
   ${RobotoLightTurquoisePearl14px}
   position: absolute;
-  width: 75px;
+  width: 150px;
   top: 540px;
   left: 509px;
   letter-spacing: 0;
+  border: none;
 `;
 
 const IniciarSesin = styled.div`
@@ -205,7 +247,7 @@ const Registrate = styled.div`
   cursor: pointer;
 `;
 
-const Iniciar = styled.div`
+const Iniciar = styled.button`
   ${RobotoLightWhite22px}
   position: absolute;
   top: 627px;

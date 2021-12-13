@@ -57,10 +57,15 @@ class HomePage extends React.Component {
             <LibrosParaTodos>{librosParaTodos}</LibrosParaTodos>
             <Rectangle5></Rectangle5>
             <SearchIcon src="/img/search-icon-1@2x.svg" />
+
+            <Ellipse6></Ellipse6>
             <Link to="/profile">
-              <Ellipse6></Ellipse6>
+            
+              <Object src="/img/object-2@2x.svg" />
+            
+              
             </Link>
-            <Object src="/img/object-2@2x.svg" />
+
             <Buscar>{buscar}</Buscar>
             <Rectangle5Copy></Rectangle5Copy>
           </OverlapGroup>
@@ -295,12 +300,13 @@ const Ellipse6 = styled.div`
 `;
 
 const Object = styled.img`
-  position: absolute;
+  position: relative;
   width: 1721px;
   height: 164px;
-  top: 0;
-  left: 0;
+  top: 30px;
+  right: -810px;
 `;
+
 
 const Buscar = styled.div`
   ${InterNormalAlto18px}

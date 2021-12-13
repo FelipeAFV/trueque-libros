@@ -171,11 +171,12 @@ const Ellipse6 = styled.div`
 `;
 
 const Object = styled.img`
-  position: absolute;
+  position: relative;
   width: 1721px;
   height: 164px;
-  top: 332px;
-  left: 0;
+  top: 360px;
+  right: -810px;
+  
 `;
 
 const Buscar = styled.div`
