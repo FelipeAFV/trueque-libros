@@ -1,4 +1,4 @@
-import { Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Author } from "./Author";
 import { Reader } from "./Reader";
 
@@ -7,6 +7,9 @@ export class Book {
 
     @PrimaryGeneratedColumn({ name: 'id'})
     id?: number;
+
+    @Column({name: 'title'})
+    title: string;
 
     @ManyToOne( () => Reader, reader => reader.historyRecords)
     @JoinColumn({name: 'reader_id'})
