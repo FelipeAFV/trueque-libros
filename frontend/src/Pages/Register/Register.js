@@ -4,7 +4,6 @@ import Main from '../../components/Main';
 import Sidebar from '../../components/Sidebar';
 import bg from '../../assets/background@1x.svg';
 
-
 const Register = () => {
     
     return (
