@@ -6,7 +6,7 @@ export const onRegister = async (data) => {
     console.log('Data', data);
     const requestConfig = {
         method: 'post',
-        url: '/auth/signup',
+        url: 'http://localhost:3000/auth/signup',
         data: data
     }
 

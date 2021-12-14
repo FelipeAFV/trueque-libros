@@ -11,6 +11,12 @@ export class User {
     @Column({name: 'username'})
     username: string;
 
+    @Column({name: 'names'})
+    names: string;
+
+    @Column({name: 'email'})
+    email: string;
+
     @Column({name: 'password'})
     password: string;
 

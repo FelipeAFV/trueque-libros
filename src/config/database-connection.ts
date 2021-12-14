@@ -1,11 +1,10 @@
-import { createConnection} from "typeorm";
-
+import { createConnection } from "typeorm";
 
 createConnection({
     username: 'root',
-    password: '',
+    password: 'root',
     host: 'localhost',
-    database: 'trueque_libros',
+    database: 'truequelibro',
     type: "mysql",
     port: 3306,
     synchronize: true,

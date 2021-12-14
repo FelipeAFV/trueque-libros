@@ -21,6 +21,8 @@ class AuthController {
                 .then( (hash) => {
                     const new_user = new User();
                     new_user.username = req.body.username;
+                    new_user.names = req.body.names;
+                    new_user.email = req.body.email;
                     new_user.password = hash;
                     return Promise.resolve(new_user);
                 })

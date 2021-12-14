@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import logo from '../assets/contenedor-logo-copy@2x.png';
 import Input from './Input';
-import { onRegister } from '../auth.api';
 
 
 const initialState = {
@@ -20,9 +19,6 @@ export default function Sidebar () {
         e.preventDefault();
         console.log('Register');
         console.log(state);
-        
-        await onRegister(state);
-        
         
     };
 
