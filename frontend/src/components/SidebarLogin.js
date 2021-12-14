@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/contenedor-logo-copy@2x.png';
 import Input from './Input';
@@ -10,25 +10,25 @@ const initialState = {
     password: ''
 }
 
-export default function SidebarLogin () {
-    const[state, setState]= useState(initialState);
+export default function SidebarLogin() {
+    const [state, setState] = useState(initialState);
 
     const handleSubmit = async e => {
         e.preventDefault();
         console.log('Register');
         console.log(state);
         await onLogin(state);
-        
+
     };
 
     const handleChange = e => {
         const inputName = e.currentTarget.name;
         const value = e.currentTarget.value;
-        setState(prev => ({...prev, [inputName]: value}));
+        setState(prev => ({ ...prev, [inputName]: value }));
         console.log(inputName);
     };
 
-    
+
 
     return (
         <Container>
@@ -38,16 +38,15 @@ export default function SidebarLogin () {
 
             <Form onSubmit={handleSubmit}>
                 <h3>Iniciar Sesión</h3>
-                <Input placeholder="Usuario"  name="username" value={state.username} onChange={handleChange} />
-                <Input type="password" placeholder="Contraseña" name="password" value={state.password} onChange={handleChange}/>
+                <Input placeholder="Usuario" name="username" value={state.username} onChange={handleChange} />
+                <Input type="password" placeholder="Contraseña" name="password" value={state.password} onChange={handleChange} />
                 <button>Iniciar Sesión</button>
             </Form>
             <div>
-                <Terms >
-                    Al ingresar, estás aceptando la política de privacidad <br /> y términos de servicio
-                    
-                </Terms>
                 <h4>¿No tienes cuenta?<span>Regístrate</span> </h4>
+                <Terms >
+                </Terms>
+
             </div>
         </Container>
 
@@ -55,7 +54,7 @@ export default function SidebarLogin () {
     )
 };
 
-const Terms=styled.p`
+const Terms = styled.p`
     padding: 0 1rem;
     text-align: center;
     font-size: 20px;

@@ -1,12 +1,12 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
 import '../../App.css'
 import Section from '../../components/Section/Section';
+import NavbarHomepage from '../../components/Navbar/NavbarHomepage';
 
 const LandingPage = () => {
     return (
         <>
-            <Navbar/>
+            <NavbarHomepage/>
             <Section/>
         </>
     )

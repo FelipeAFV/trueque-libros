@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {
     NavbarContainer,
     Nav,
@@ -8,41 +8,14 @@ import {
     NavbarLink,
     BtnWrap,
     NavBtn,
-    NavBtn2,
-    NavbarSearch,
-    SearchLogo
+    NavBtn2
 } from './navbarElements';
 import logo from '../../assets/contenedor-logo-copy@2x.png';
-//import axios from 'axios';
-import {Input} from './navbarElements'
 
-export default function Navbar () {
 
-    /* const[book, setBook] = useState(""); */
-    const[search,setSearch] = useState("");
+export default function NavbarHomepage () {
 
-    /* const onSearch =async()=>{
-        await axios.get("http://localhost:3000/book/all")
-        .then(response=>{
-           setBook(response.data);
-        }).catch(error=>{
-            console.log(error);
-        })
-    } */
 
-/*     const handleSubmit = async e => {
-        setBook(e.target.value);
-        console.log("Búsqueda: "+e.target.value);
-        e.preventDefault();
-        await onSearch(book);
-    }; */
-
-    const handleChange=e=>{
-        const inputName = e.currentTarget.name;
-        const value = e.currentTarget.value;
-        setSearch(prev => ({...prev, [inputName]: value}));
-        console.log(value);
-    };
 
 
 
@@ -63,10 +36,6 @@ export default function Navbar () {
                         </NavbarItem>
 
                     </NavMenu>
-                    <NavbarSearch>
-                        <SearchLogo />
-                        <Input type="text" placeholder="Buscar libros" onChange={handleChange} name="book" value={search}/>
-                    </NavbarSearch>
                     <BtnWrap>
                         <NavBtn to="/register">Sign Up</NavBtn>
                         <NavBtn2 to="/login" >Login</NavBtn2>
