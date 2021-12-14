@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import logo from '../assets/contenedor-logo-copy@2x.png';
 import Input from './Input';
 import { onLogin } from '../auth.api';
+import {useNavigate} from 'react-router-dom';
 
 
 const initialState = {
@@ -12,12 +13,13 @@ const initialState = {
 
 export default function SidebarLogin() {
     const [state, setState] = useState(initialState);
-
+    let navigate = useNavigate();
     const handleSubmit = async e => {
         e.preventDefault();
-        console.log('Register');
+        console.log('Login');
         console.log(state);
         await onLogin(state);
+        navigate('/home-page');
 
     };
 
@@ -28,7 +30,9 @@ export default function SidebarLogin() {
         console.log(inputName);
     };
 
-
+    /* const handleNext= e => {
+        navigate('/home-page')
+    } */
 
     return (
         <Container>

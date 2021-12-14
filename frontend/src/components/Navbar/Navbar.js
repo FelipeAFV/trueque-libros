@@ -8,7 +8,6 @@ import {
     NavbarLink,
     BtnWrap,
     NavBtn,
-    NavBtn2,
     NavbarSearch,
     SearchLogo
 } from './navbarElements';
@@ -68,8 +67,7 @@ export default function Navbar () {
                         <Input type="text" placeholder="Buscar libros" onChange={handleChange} name="book" value={search}/>
                     </NavbarSearch>
                     <BtnWrap>
-                        <NavBtn to="/register">Sign Up</NavBtn>
-                        <NavBtn2 to="/login" >Login</NavBtn2>
+                        <NavBtn to="/register">Log out</NavBtn>
                     </BtnWrap>
                 </Nav>
             </NavbarContainer>
