@@ -19,7 +19,7 @@ const Register = () => {
 }
 
 
-const Container = styled.div`
+export const Container = styled.div`
   background: #eefcff;
   position: absolute;
   top: 0;
@@ -28,7 +28,7 @@ const Container = styled.div`
   right:0;
 `;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   background-image: url(${bg});
   background-position:center;
   background-size: cover;

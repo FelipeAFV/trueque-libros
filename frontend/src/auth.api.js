@@ -23,11 +23,9 @@ export const onRegister = async (data) => {
 export const onLogin = async (data) => {
     const requestConfig = {
         method: 'post',
-        url: '/auth/signIn',
-        data
+        url: 'http://localhost:3000/auth/signIn',
+        data:data
     }
     console.log('Loggeando al server en puerto');
-    return axios.request<LoginResponse>(requestConfig);
-
-
+    return axios.request(requestConfig);
 }

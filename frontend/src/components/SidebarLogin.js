@@ -2,26 +2,22 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import logo from '../assets/contenedor-logo-copy@2x.png';
 import Input from './Input';
-import { onRegister } from '../auth.api';
+import { onLogin } from '../auth.api';
 
 
 const initialState = {
     username: '',
-    names: '',
-    email: '',
     password: ''
 }
 
-export default function Sidebar () {
+export default function SidebarLogin () {
     const[state, setState]= useState(initialState);
-
 
     const handleSubmit = async e => {
         e.preventDefault();
         console.log('Register');
         console.log(state);
-        await onRegister(state);
-        
+        await onLogin(state);
         
     };
 
@@ -41,19 +37,17 @@ export default function Sidebar () {
             </LogoWrapper>
 
             <Form onSubmit={handleSubmit}>
-                <h3>Regístrate</h3>
+                <h3>Iniciar Sesión</h3>
                 <Input placeholder="Usuario"  name="username" value={state.username} onChange={handleChange} />
-                <Input placeholder="Nombre" name="names" value={state.names} onChange={handleChange}/>
-                <Input type="email" placeholder="Email" name="email" value={state.email} onChange={handleChange}/>
                 <Input type="password" placeholder="Contraseña" name="password" value={state.password} onChange={handleChange}/>
-                <button>Regístrate</button>
+                <button>Iniciar Sesión</button>
             </Form>
             <div>
                 <Terms >
                     Al ingresar, estás aceptando la política de privacidad <br /> y términos de servicio
                     
                 </Terms>
-                <h4>¿Ya tienes cuenta?<span>Iniciar Sesión</span> </h4>
+                <h4>¿No tienes cuenta?<span>Regístrate</span> </h4>
             </div>
         </Container>
 
