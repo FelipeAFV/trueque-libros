@@ -38768,16 +38768,15 @@ var Login = /*#__PURE__*/function (_React$Component) {
       }
     };
     return _this;
-  }
-  /* login = async()=> {
-      await axios.get(baseUrl, {params: {username:this.state.username, password:this.state.password}})
-      .then(response=>{
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-    }   */
+  } // login = async()=> {
+  //     await axios.get(baseUrl, {params: {username:this.state.username, password:this.state.password}})
+  //     .then(response=>{
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     })
+  //   }   
 
 
   _createClass(Login, [{
@@ -39440,7 +39439,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65084" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56534" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

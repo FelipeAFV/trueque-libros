@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
 import { getRepository } from "typeorm";
 import { Book } from "../model/Book";
+import { History } from "../model/History";
 import { Reader } from "../model/Reader";
 import bookService from "../services/book-service";
+import historyService from "../services/history-service";
 import readerService from "../services/reader-service";
 
 class BookController {
@@ -21,10 +23,13 @@ class BookController {
             return res.status(500);
         }
 
+        
         const book: Book = req.body;
         book.reader = reader;
-    
+        
         const bookInserted = await bookService.create(book);
+        const history: History = new History(reader, bookInserted);
+        await historyService.create(history);
 
         return res.status(200).json({'Book created': bookInserted});
     }

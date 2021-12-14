@@ -1,5 +1,6 @@
-import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Author } from "./Author";
+import { Offer } from "./Offer";
 import { Reader } from "./Reader";
 
 @Entity({name: 'books'})
@@ -14,6 +15,9 @@ export class Book {
     @ManyToOne( () => Reader, reader => reader.historyRecords)
     @JoinColumn({name: 'reader_id'})
     reader: Reader;
+
+    @OneToMany(() => Offer, offer => offer.requestedBook)
+    offer: Offer[];
 
     @ManyToMany( () => Author)
     @JoinTable({

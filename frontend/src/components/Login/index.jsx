@@ -26,15 +26,15 @@ class Login extends React.Component {
     }
   }
 
-  /* login = async()=> {
-      await axios.get(baseUrl, {params: {username:this.state.username, password:this.state.password}})
-      .then(response=>{
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-    }   */
+  // login = async()=> {
+  //     await axios.get(baseUrl, {params: {username:this.state.username, password:this.state.password}})
+  //     .then(response=>{
+  //       console.log(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     })
+  //   }   
   handleChange = (e) => {
     this.setState({
       form: {

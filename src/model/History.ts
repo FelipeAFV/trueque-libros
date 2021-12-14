@@ -6,6 +6,12 @@ import { Reader } from "./Reader";
 @Entity({name: 'history'})
 export class History {
 
+    constructor(reader: Reader, book: Book, exchange: Exchange | null = null) {
+        this.book = book;
+        this.exchange = exchange;
+        this.reader = reader;
+    }
+
     @PrimaryGeneratedColumn({ name: 'id'})
     id?: number;
 
@@ -19,7 +25,7 @@ export class History {
 
     @ManyToOne( () => Exchange)
     @JoinColumn({name: 'exchange_id'})
-    exchange: Exchange;
+    exchange: Exchange | null;
 
 
 }

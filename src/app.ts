@@ -16,7 +16,7 @@ console.log('NODE_ENV', process.env.NODE_ENV);
 
 if (process.env.NODE_ENV == 'production') {
 
-    // app.use(express.static(path.join(process.cwd(), 'frontend/build')));
+    app.use(express.static(path.join(process.cwd(), 'frontend/build')));
 } else {
 
 }
@@ -36,9 +36,9 @@ app.use(json());
 
 if (process.env.NODE_ENV == 'production') {
 
-    // app.get('*', function (req, res) {
-    //     res.sendFile(path.join(process.cwd(), 'frontend/build', 'index.html'));
-    // });
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(process.cwd(), 'frontend/build', 'index.html'));
+    });
     
 } else {
 

@@ -1,4 +1,4 @@
-import { Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Book } from "./Book";
 
 @Entity({name: 'exchanges'})
@@ -16,5 +16,7 @@ export class Exchange {
     book2: Book;
 
 
+    @Column({name: 'completed'})
+    completed: boolean;
 
 }
